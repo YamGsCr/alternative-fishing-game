@@ -1,0 +1,6 @@
+[
+    { "nome": "Pirarucu", "raridade": "comum", "peso": 1, "tamanho": 15, "chance": 60 },
+    { "nome": "Tilápia", "raridade": "raro", "peso": 3, "tamanho": 40, "chance": 30 },
+    { "nome": "Baiacu", "raridade": "épico", "peso": 2, "tamanho": 20, "chance": 10 }
+]
+  

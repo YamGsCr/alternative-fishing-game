@@ -1,0 +1,29 @@
+[
+    {
+        "id": "vara-inicial",
+        "nome": "Vara do Avô",
+        "categoria": "varas",
+        "mundo": 1,
+        "atributos": { "sorte": 0 },
+        "preco": 0,
+        "descricao": "A vara herdada do seu avô. Quem diria que o velho usava só um graveto e uma linha."
+        },
+    {
+    "id": "vara-reforcada",
+    "nome": "Vara Reforçada",
+    "categoria": "varas",
+    "mundo": 1,
+    "atributos": { "sorte": 2 },
+    "preco": 50,
+    "descricao": "Melhor que pescar com um pedaço de pau e uma linha."
+    },
+    {
+    "id": "vara-amadora",
+    "nome": "Vara Amadora",
+    "categoria": "vara",
+    "mundo": 1,
+    "atributos": { "sorte": 5 },
+    "preco": 100,
+    "descricao": "Ideal para iniciantes."  
+    }
+]
