@@ -1,0 +1,24 @@
+.menu-topo {
+    display: flex;
+    gap: 12px;
+    padding: 8px;
+    background-color: #3e2723;
+  }
+  
+  .menu-topo a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 6px 12px;
+    border-radius: 4px;
+    transition: background 0.2s ease;
+  }
+  
+  .menu-topo a:hover {
+    background-color: #5d4037;
+  }
+  
+  .menu-topo a.ativo {
+    background-color: #d84315;
+  }
+  

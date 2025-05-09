@@ -1,0 +1,15 @@
+<div class="main-layout">
+    <div class="left-section">
+      <app-painel-pesca></app-painel-pesca> <!--tela de pesca-->
+    </div>
+  
+    <div class="center-section">
+      <top-bar></top-bar> <!--Esse daqui é o component topbar, ele está na pasta do layout-->
+      <router-outlet></router-outlet><!--Esse daqui é aonde muda a seção do meio, basicamente roda um 'routing'-->
+    </div>
+  
+    <div class="right-section">
+      <app-loja></app-loja> <!-- tela de loja -->
+    </div>
+  </div>
+  
