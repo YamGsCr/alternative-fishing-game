@@ -7,6 +7,6 @@ import { RouterModule } from '@angular/router';
   standalone: true,
   imports: [CommonModule, RouterModule],
   templateUrl: './top-bar.component.html',
-  styleUrls: ['./top-bar.component.css']
+  styleUrls: ['./top-bar.component.css'],
 })
 export class TopBarComponent {}

@@ -1,15 +1,33 @@
-<div class="main-layout">
-    <div class="left-section">
-      <app-painel-pesca></app-painel-pesca> <!--tela de pesca-->
-    </div>
-  
-    <div class="center-section">
-      <top-bar></top-bar> <!--Esse daqui é o component topbar, ele está na pasta do layout-->
-      <router-outlet></router-outlet><!--Esse daqui é aonde muda a seção do meio, basicamente roda um 'routing'-->
-    </div>
-  
-    <div class="right-section">
-      <app-loja></app-loja> <!-- tela de loja -->
-    </div>
+<div class="flex flex-row place-content-between h-screen w-auto m-4">
+  <div class="flex flex-col items-center bg-sky-100 h-full w-[40%]">
+    <h1>Left</h1>
+    <!-- <app-painel-pesca></app-painel-pesca> -->
+    <!--tela de pesca-->
   </div>
-  
+
+  <!--Conteúdo central-->
+  <div
+    class="flex flex-col place-content-between items-center h-full w-full border-8 border-darkbrown"
+  >
+    <div class="flex items-center justify-center h-[10%] w-full bg-lightbrown">
+      <top-bar></top-bar>
+    </div>
+
+    <div
+      class="flex justify-center items-center w-full h-[10%] bg-lightbrown border-t-8 border-darkbrown"
+    >
+      <h1 class="text-5xl text-lightyellow">lago</h1>
+    </div>
+    <div
+      class="bg-[url('/Land-Background.gif')] h-full w-full border-t-8 border-darkbrown"
+    ></div>
+
+    <router-outlet></router-outlet>
+  </div>
+
+  <div class="flex justify-center bg-sky-100 h-full w-[30%]">
+    <h1>Right</h1>
+
+    <app-shop-panel></app-shop-panel>
+  </div>
+</div>

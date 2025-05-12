@@ -1,1 +1,36 @@
-/* You can add global styles to this file, and also import other style files */
+@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+
+
+
+@font-face {
+    font-family: 'Pixelify';
+    src: url('assets/fonts/Pixelify_Sans/PixelifySans-VariableFont_wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+
+
+@theme {
+
+    --color-darkbrown: #422019;  /* to borders */
+    --color-lightbrown: #732F2F; /* to backgrounds */
+    --color-lightyellow: #FBE792; /* to text */
+    --color-goldyellow: #E79537;
+    
+
+}
+
+
+body{
+
+    font-family: Pixelify;
+
+}
