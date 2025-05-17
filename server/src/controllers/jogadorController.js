@@ -5,23 +5,21 @@ exports.criarJogador = async (req, res) => {
   const { username, senha, nickname } = req.body;
 
   try {
-    // Verifica se usuário já existe
+
     const jaExiste = await Login.findOne({ username });
     if (jaExiste) {
       return res.status(400).json({ erro: "Usuário já existe" });
     }
 
-    // Cria login
     const novoLogin = new Login({ username, senha });
     await novoLogin.save();
 
-    // Cria jogador com login vinculado
     const novoJogador = new Jogador({
       nickname,
       login: novoLogin._id,
-      moedas: 100, // começa com 100 moedas?
+      moedas: 100,
       inventario: [
-        { itemId: "vara-inicial", equipado: true } // começa com a vara básica
+        { itemId: "vara-inicial", equipado: true }
       ],
       conquistas: [],
       titulo: "Pescador Iniciante"
@@ -35,3 +33,20 @@ exports.criarJogador = async (req, res) => {
     res.status(500).json({ erro: "Erro ao criar jogador" });
   }
 };
+
+exports.obterInventario = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const jogador = await Jogador.findById(id);
+    if (!jogador) {
+      return res.status(404).json({ erro: 'Jogador não encontrado' });
+    }
+
+    res.json(jogador.inventario);
+  } catch (err) {
+    console.error('Erro ao buscar inventário:', err);
+    res.status(500).json({ erro: 'Erro interno ao buscar inventário' });
+  }
+};
+

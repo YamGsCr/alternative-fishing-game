@@ -1,1 +1,12 @@
-<p>inventory-list works!</p>
+<h2>Inventário</h2>
+
+<ul *ngIf="inventario.length > 0; else vazio">
+  <li *ngFor="let item of inventario">
+    <strong>{{ item.itemId }}</strong>
+    <span *ngIf="item.equipado" style="color: green">[Equipado]</span>
+  </li>
+</ul>
+
+<ng-template #vazio>
+  <p>Inventário vazio.</p>
+</ng-template>

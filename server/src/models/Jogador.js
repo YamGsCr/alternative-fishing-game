@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 
 const jogadorSchema = new mongoose.Schema({
   nickname: { type: String, required: true },
+  login: { type: mongoose.Schema.Types.ObjectId, ref: 'Login', required: true },
   inventario: [
     {
       itemId: { type: String, required: true },

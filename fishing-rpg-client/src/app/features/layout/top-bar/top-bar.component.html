@@ -1,6 +1,12 @@
-<nav class="top-bar flex w-auto h-full gap-10 text-lightyellow">
-  <a routerLink="/jogo/mapa" routerLinkActive="ativo">Mapa</a>
-  <a routerLink="/jogo/mundos" routerLinkActive="ativo">Mundos</a>
-  <a routerLink="/jogo/status" routerLinkActive="ativo">Status</a>
-  <a routerLink="/jogo/enciclopedia" routerLinkActive="ativo">Enciclopédia</a>
-</nav>
+<!-- tela-principal.component.html -->
+<div class="top-bar">
+  <a routerLink="/jogo/mapa">Mapa</a>
+  <a routerLink="/jogo/mundos">Mundos</a>
+  <a routerLink="/jogo/status">Status</a>
+  <a routerLink="/jogo/inventário">Inventário</a>
+  <a routerLink="/jogo/enciclopedia">Enciclopédia</a>
+</div>
+
+<div class="conteudo-central">
+  <router-outlet></router-outlet>
+</div>

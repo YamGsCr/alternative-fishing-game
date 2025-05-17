@@ -1,1 +1,6 @@
-<p>shop-panel works!</p>
+<li *ngFor="let item of itens">
+  <h3>{{ item.nome }}</h3>
+  <p>{{ item.descricao }}</p>
+  <p><strong>Preço:</strong> {{ item.preco }} moedas</p>
+  <button (click)="comprar(item)">Comprar</button>
+</li>
