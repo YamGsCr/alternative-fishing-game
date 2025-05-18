@@ -1,11 +1,11 @@
 <!-- tela-principal.component.html -->
-<div class="top-bar">
-  <a routerLink="/jogo/mapa">Mapa</a>
-  <a routerLink="/jogo/mundos">Mundos</a>
-  <a routerLink="/jogo/status">Status</a>
-  <a routerLink="/jogo/inventário">Inventário</a>
-  <a routerLink="/jogo/enciclopedia">Enciclopédia</a>
-</div>
+<nav class="top-bar flex w-full h-full gap-4 text-lightyellow m-1">
+  <a routerLink="/jogo/mapa" routerLinkActive="ativo">Mapa</a>
+  <a routerLink="/jogo/mundos" routerLinkActive="ativo">Mundos</a>
+  <a routerLink="/jogo/status" routerLinkActive="ativo">Status</a>
+  <a routerLink="/jogo/inventário" routerLinkActive="ativo">Inventário</a>
+  <a routerLink="/jogo/enciclopedia" routerLinkActive="ativo">Enciclopédia</a>
+</nav>
 
 <div class="conteudo-central">
   <router-outlet></router-outlet>

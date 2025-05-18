@@ -5,6 +5,7 @@ import { NgOptimizedImage } from '@angular/common';
 import { FishingPanelComponent } from '../../features/fishing/fishing-panel/fishing-panel.component';
 import { TopBarComponent } from '../../features/layout/top-bar/top-bar.component';
 import { ShopPanelComponent } from '../../features/shop/shop-panel/shop-panel.component';
+import { LakeComponent } from './lake/lake.component';
 
 @Component({
   selector: 'tela-principal',
@@ -17,6 +18,7 @@ import { ShopPanelComponent } from '../../features/shop/shop-panel/shop-panel.co
     FishingPanelComponent,
     TopBarComponent,
     ShopPanelComponent,
+    LakeComponent  
   ],
 })
 export class TelaPrincipalComponent {}
