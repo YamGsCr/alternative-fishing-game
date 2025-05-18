@@ -1,24 +1,46 @@
 import { Component } from '@angular/core';
+import { Router, RouterModule } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  imports: [FormsModule, ReactiveFormsModule],
-  standalone: true
+  standalone: true,
+  imports: [RouterModule, FormsModule]
 })
 export class LoginComponent {
   username = '';
   senha = '';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   fazerLogin() {
-    const payload = { username: this.username, senha: this.senha };
-    this.http.post('http://localhost:3000/api/login', payload).subscribe({
-      next: (res) => console.log('Login realizado:', res),
-      error: (err) => console.error('Erro no login:', err)
+    this.http.post<any>('http://localhost:3000/api/login', {
+      username: this.username,
+      senha: this.senha
+    }).subscribe({
+      next: (res) => {
+        console.log('Login OK:', res);
+
+        if (!res?.jogador?._id) {
+          alert('Jogador inválido ou não encontrado.');
+          return;
+        }
+
+        const jogador = res.jogador;
+
+        // Persistir dados do jogador no localStorage
+        localStorage.setItem('jogadorId', jogador._id);
+        localStorage.setItem('nickname', jogador.nickname);
+        localStorage.setItem('moedas', jogador.moedas?.toString() || '0');
+
+        this.router.navigate(['/jogo']);
+      },
+      error: (err) => {
+        console.error('Erro no login:', err);
+        alert(err.error?.erro || 'Erro ao fazer login');
+      }
     });
   }
 }

@@ -1,0 +1,23 @@
+const Compra = require('../models/Compra');
+const Jogador = require('../models/Jogador');
+
+async function registrarCompra(compraData) {
+  const { jogadorId, itemId, nomeItem, preco, mundo } = compraData;
+  const jogador = await Jogador.findById(jogadorId);
+  if (!jogador) throw new Error('Jogador não encontrado');
+
+  const jaPossui = jogador.inventario.some(item => item.itemId === itemId);
+  if (jaPossui) throw new Error('Item já adquirido');
+  if (jogador.moedas < preco) throw new Error('Saldo insuficiente');
+
+  jogador.moedas -= preco;
+  jogador.inventario.push({ itemId, equipado: false });
+  await jogador.save();
+  
+  const novaCompra = new Compra({ jogadorId, itemId, nomeItem, preco, mundo });
+  await novaCompra.save();
+
+  return { itemId, nomeItem, novoSaldo: jogador.moedas };
+}
+
+module.exports = { registrarCompra };
