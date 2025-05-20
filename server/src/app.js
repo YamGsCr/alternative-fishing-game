@@ -1,11 +1,11 @@
+require('dotenv').config({ path: __dirname + '/.env.public' });
 const mongoose = require('mongoose');
 const express = require('express');
 const cors = require('cors');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-
-mongoose.connect('mongodb://localhost:27017/fishing-rpg', {
+mongoose.connect(process.env.TESTE_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 })
