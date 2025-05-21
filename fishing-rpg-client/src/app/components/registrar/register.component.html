@@ -1,5 +1,18 @@
-<h2>Criar Jogador</h2>
-<input placeholder="Username" [(ngModel)]="username" />
-<input placeholder="Senha" type="password" [(ngModel)]="senha" />
-<input placeholder="Nickname" [(ngModel)]="nickname" />
-<button (click)="criarJogador()">Criar</button>
+<div class="flex bg-[url(/bg-login-screen.png)]  bg-cover w-full h-full justify-center items-center">
+  <div
+    class="flex flex-col gap-2  justify-center items-center w-full h-full sm:w-[30%] sm:h-[60%] border-3 bg-white opacity-75"
+  >
+    <h2>Criar Jogador</h2>
+    <div class="flex flex-col gap-2 w-[80%] justify-center items-center">
+      <input placeholder="Username" [(ngModel)]="username" class="border-3 w-full" />
+      <input
+        placeholder="Senha"
+        type="password"
+        [(ngModel)]="senha"
+        class="border-3 w-full"
+      />
+      <input placeholder="Nickname" [(ngModel)]="nickname" class="border-3 w-full" />
+    </div>
+    <button (click)="criarJogador()">Entrar</button>
+  </div>
+</div>
