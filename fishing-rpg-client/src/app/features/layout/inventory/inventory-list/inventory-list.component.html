@@ -2,8 +2,11 @@
 
 <ul *ngIf="inventario.length > 0; else vazio">
   <li *ngFor="let item of inventario">
-    <strong>{{ item.itemId }}</strong>
+    <strong>{{ item.nomeItem}}</strong>
     <span *ngIf="item.equipado" style="color: green">[Equipado]</span>
+    <button (click)="equiparItem(item.itemId)" [disabled]="item.equipado">
+    Equipar
+  </button>
   </li>
 </ul>
 

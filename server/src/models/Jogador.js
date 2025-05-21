@@ -6,6 +6,7 @@ const jogadorSchema = new mongoose.Schema({
   inventario: [
     {
       itemId: { type: String, required: true },
+      nomeItem: {type: String},
       equipado: { type: Boolean, default: false }
     }
   ],

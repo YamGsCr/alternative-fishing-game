@@ -15,16 +15,37 @@ export class InventoryListComponent implements OnInit {
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
-    const jogadorId = localStorage.getItem('jogadorId');
-    if (!jogadorId) {
-      console.error('Jogador não logado');
-      return;
+    this.carregarInventario();
     }
 
-    this.http.get<any[]>(`http://localhost:3000/api/jogador/${jogadorId}/inventario`)
-      .subscribe({
-        next: (data) => this.inventario = data,
-        error: (err) => console.error('Erro ao carregar inventário:', err)
-      });
+    carregarInventario() {
+  const jogadorId = localStorage.getItem('jogadorId');
+  if (!jogadorId) {
+    console.error('Jogador não logado');
+    return;
   }
+
+  this.http.get<any[]>(`http://localhost:3000/api/jogador/${jogadorId}/inventario`)
+    .subscribe({
+      next: (data) => this.inventario = data,
+      error: (err) => console.error('Erro ao carregar inventário:', err)
+    });
 }
+
+  equiparItem(itemId: string) {
+  const jogadorId = localStorage.getItem('jogadorId');
+  this.http.post<any>('http://localhost:3000/api/jogador/equipar', {
+    jogadorId,
+    itemId
+  }).subscribe({
+    next: (res) => {
+      alert(res.mensagem);
+      this.carregarInventario()
+    },
+    error: (err) => {
+      alert(err.error?.erro || 'Erro ao equipar item');
+    }
+  });
+}
+}
+

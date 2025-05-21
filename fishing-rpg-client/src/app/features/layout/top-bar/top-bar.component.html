@@ -1,4 +1,10 @@
 <!-- tela-principal.component.html -->
+<div class="flex justify-between items-center bg-green-900 text-white px-4 py-2 w-full">
+  <div class="text-sm">
+    Bem-vindo, {{ nickname }} | 💰 {{ moedas }} moedas
+  </div>
+</div>
+
 <nav class="top-bar flex justify-center items-center h-[10%] gap-4 text-lightyellow  border-b-8 border-darkbrown">
   <a routerLink="/jogo/mapa" routerLinkActive="ativo">Mapa</a>
   <a routerLink="/jogo/mundos" routerLinkActive="ativo">Mundos</a>

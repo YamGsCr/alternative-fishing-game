@@ -16,10 +16,22 @@ export class RegisterComponent {
   constructor(private http: HttpClient) {}
 
   criarJogador() {
-    const payload = { username: this.username, senha: this.senha, nickname: this.nickname };
-    this.http.post('http://localhost:3000/api/jogador/criar', payload).subscribe({
-      next: (res) => console.log('Jogador criado:', res),
-      error: (err) => console.error('Erro ao criar jogador:', err)
-    });
-  }
+  const payload = {
+    username: this.username,
+    senha: this.senha,
+    nickname: this.nickname
+  };
+
+  this.http.post<any>('http://localhost:3000/api/jogador/criar', payload).subscribe({
+    next: (res) => {
+      alert(res.mensagem || 'Conta criada com sucesso!');
+      // Se quiser redirecionar após criar:
+      // this.router.navigate(['/login']);
+    },
+    error: (err) => {
+      alert(err.error?.erro || 'Erro ao criar conta');
+      console.error('Erro ao criar jogador:', err);
+    }
+  });
+}
 }

@@ -1,16 +1,24 @@
-<!-- top menu -->
- <div class="h-screen overflow-hidden">
-<div class="flex flex-row place-content-around w-full ml-1"> 
-  <div class="flex w-full justify-start">
-<h1>Fishing RPG</h1>
-</div>
-<div class="flex w-full flex-row justify-end mr-1">
-<nav>
-  <a routerLink="/login">Login</a> |
-  <a routerLink="/registrar">Criar Conta</a>
-</nav>
-</div>
-</div> 
-<!-- top menu -->
-<router-outlet></router-outlet>
+<div class="h-screen overflow-hidden">
+  <div class="flex flex-row place-content-around w-full ml-1"> 
+    <div class="flex w-full justify-start">
+      <strong>Ultimate Alternative Fishing Game</strong>
+    </div>
+    <div class="flex w-full flex-row justify-end mr-1 items-center">
+      <ng-container *ngIf="!isLogado">
+        <nav>
+          <a routerLink="/login">Login</a> |
+          <a routerLink="/registrar">Criar Conta</a>
+        </nav>
+      </ng-container>
+
+      <ng-container *ngIf="isLogado">
+        <span class="mr-2">🎣 {{ nickname }}</span>
+        <button (click)="logout()" class="bg-red-600 text-white px-2 py-1 rounded hover:bg-red-700">
+          Sair
+        </button>
+      </ng-container>
+    </div>
+  </div>
+
+  <router-outlet></router-outlet>
 </div>
